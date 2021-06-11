@@ -1,0 +1,68 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class Courbe extends JFrame{
+    public Courbe(){
+        setTitle("Ma fenêtre Java");
+        setSize(1000,1000);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setContentPane(new Graphe());
+        setVisible(true);
+    }
+
+    public static void main(String[] str) {
+        Courbe f = new Courbe();
+    }
+
+    class Graphe extends JPanel{
+        int H,W;
+        int X(double t){
+            double x= Math.cos(omega*t);
+            return (int) (W/2+(int)(H/4*x));
+        }
+        int Y(double t){
+            double y= Math.sin(omega*t);
+            return (int) (W/2+(int)(H/4*y));
+        }
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            H=getHeight();W=getWidth();
+            g.drawLine(0,H/2,W,H/2);
+            g.drawLine(W/2,0,W/2,H);
+
+            double h=W/500;
+            double t=0;
+            M m = new M(0);
+            int xd= m.getX();
+            int yd= m.getY();
+
+
+            for(int i=0;i<500;i++) {
+                t+=h;
+                int x=X(t);
+                int y=Y(t);
+                g.drawLine(xd, yd, x, y);
+                xd=x;
+                yd=y;
+            }
+        }
+
+    }
+    class M{
+        double t;
+        double x,y;
+        double omega = 0.2;
+        public M(double t) {
+            this.t = t;
+        }
+        public int getX() {
+            double x= Math.cos(omega*t);
+            return (int) x;
+        }
+        public int getY() {
+            double y= Math.sin(omega*t);
+            return (int) y;
+        }
+    }
+}
