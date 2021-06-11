@@ -21,8 +21,8 @@ public class Fenetre extends JFrame {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            f.boule.setPosX(2*i);
-            f.boule.setPosY(2*i);
+            f.boule.setPosX(5*i);
+            f.boule.setPosY(2*i*i/10);
             f.boule.repaint();
 
         }
