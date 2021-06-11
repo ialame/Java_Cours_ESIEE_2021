@@ -7,7 +7,7 @@ public class ProblemeDeTir extends JFrame {
         new ProblemeDeTir();
     }
 
-    private Panneau pan = new Panneau();
+    private Boule pan = new Boule();// Panneau();
 
     public ProblemeDeTir() {
         this.setTitle("Animation");

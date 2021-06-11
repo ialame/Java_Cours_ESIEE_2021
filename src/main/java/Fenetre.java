@@ -9,7 +9,6 @@ public class Fenetre extends JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         boule = new Boule();
         setContentPane(boule);
-        //Container panneau = getContentPane();
         setVisible(true);
 
 
